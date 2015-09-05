@@ -1,0 +1,25 @@
+{
+  "name": "mean-seed",
+  "version": "1.0.0",
+  "description": "MEAN project starter code",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmaltbia/mean-seed.git"
+  },
+  "author": "Michelle Maltbia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmaltbia/mean-seed/issues"
+  },
+  "homepage": "https://github.com/mmaltbia/mean-seed#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.5"
+  }
+}

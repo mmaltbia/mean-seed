@@ -21,7 +21,7 @@ app.get('/', function(req, res){
 	res.sendFile(__dirname + '/public/views/index.html')
 })
 
-// listen on port 3000
-app.listen(process.env.PORT || 3000, function () {
-  console.log('server started on localhost:3000');
+// listen on port 3030
+app.listen(process.env.PORT || 3030, function () {
+  console.log('server started on localhost:3030');
 });

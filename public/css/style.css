@@ -11,9 +11,14 @@ ul li {
     padding-right: 60px;
 }
 
+textarea {
+    border: none;
+}
+
 /*button:focus {
     background-color: red;
 }*/
+
 
 .focused{
     background-color: yellow;

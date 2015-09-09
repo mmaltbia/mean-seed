@@ -38,7 +38,7 @@
         </select>
       </li>
       <li>
-
+          
       </li>
       <li>Browser Template</li>
     </ul>
@@ -51,8 +51,16 @@
   </div><!-- End Wrapper-->
 
 <script>
-  var editShape = function(){
-    console.log('hello');
+var editShape = function(event) {
+  var el = event.target;
+  targetId = el.id;
+  $(this).keydown(function(e){
+    if (e.which == 8){
+      e.preventDefault();
+      $('div').remove(targetId);
+      console.log(el.id + ' removed')
+    }
+  })
 }
 </script>
 

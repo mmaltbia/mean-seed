@@ -4,11 +4,12 @@ $.get('/api/wireframes/:id', function(data){
     console.log('hello');
 });
 
-var rectangleBtn = $('#rectangle-btn');
-var circleBtn = $('#circle-btn');
-var lineBtn = $('#line-btn');
-var textBtn = $('#text-btn');
-var font = $('#font-dropdown');
+var rectangleBtn = $('#rectangle-btn'),
+    circleBtn = $('#circle-btn'),
+    lineBtn = $('#line-btn'),
+    textBtn = $('#text-btn'),
+    font = $('#font-dropdown'),
+    selectedFont = 'Raleway';
 
 
 rectangleBtn.on('click', function(){
@@ -42,14 +43,6 @@ textBtn.on('click', function(){
     lineBtn.removeClass();
     toggleShape();
 })
-
-font.on('click', function(){
-    console.log('font button clicked');
-})
-
-
-
-
 
 i = 1;
 var rectArr = [];
@@ -98,11 +91,10 @@ var toggleShape = function() {
                                 }
                                 
                                 //append a new div and increment the class and turn it into jquery selector
-                                $(this).append('<div class="gen_box_' + i + '" onClick="editShape()"></div>');
+                                $(this).append('<div id="div-'+ i +'" class="gen_box_' + i + '"  onClick="editShape(event)"></div>');
                                 gen_box = $('.gen_box_' + i);
                                 div_id = $('#gen_box_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width, 'height': height};
-
 
                                 console.log(div_details);
                                 rectArr.push(div_details);
@@ -132,10 +124,7 @@ var toggleShape = function() {
                                 console.log( 'height: ' + height + 'px' );                       
                                 //add the styles of generated div into .inner_col_one
                                 i++;
-
-
                         }});
-
         });
     }
     else if(circleBtn.hasClass('focused')){
@@ -185,7 +174,6 @@ var toggleShape = function() {
                                 div_id = $('#gen_circ_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width, 'height': height};
 
-
                                 console.log(div_details);
                                 circArr.push(div_details);
                                 var index = $('#gen_circ_' + i);
@@ -215,10 +203,7 @@ var toggleShape = function() {
                                 console.log( 'height: ' + height + 'px' );                       
                                 //add the styles of generated div into .inner_col_one
                                 i++;
-
-
                         }});
-
         });
     }
     else if(lineBtn.hasClass('focused')){
@@ -268,7 +253,6 @@ var toggleShape = function() {
                                 div_id = $('#gen_line_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width};
 
-
                                 console.log(div_details);
                                 circArr.push(div_details);
                                 var index = $('#gen_line_' + i);
@@ -297,10 +281,7 @@ var toggleShape = function() {
                                 console.log( 'height: ' + height + 'px' );                       
                                 //add the styles of generated div into .inner_col_one
                                 i++;
-
-
                         }});
-
         });
     }
     else if(textBtn.hasClass('focused')){
@@ -351,7 +332,6 @@ var toggleShape = function() {
                                 div_id = $('#gen_text_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width, 'height': height};
 
-
                                 console.log(div_details);
                                 circArr.push(div_details);
                                 var index = $('#gen_circ_' + i);
@@ -375,11 +355,18 @@ var toggleShape = function() {
                                 .resizable();
 
                                 //if the mouse was dragged left, offset the gen_box position 
-                                drag_left ? $(gen_circ).offset({ left: x_end, top: y_begin }) : false;
+                                drag_left ? $(gen_text).offset({ left: x_end, top: y_begin }) : false;
                                 console.log( 'width: ' + width + 'px');
                                 console.log( 'height: ' + height + 'px' );                       
                                 //add the styles of generated div into .inner_col_one
                                 i++;
+
+                                font.on('click', function(){
+                                    var f = document.getElementById("font-dropdown");
+                                    selectedFont = f.options[f.selectedIndex].text;
+                                    console.log(selectedFont);
+                                    return selectedFont;
+                                })
 
                                 $(text_box).css({
                                     'background'    : 'transparent',
@@ -388,17 +375,41 @@ var toggleShape = function() {
                                      'position'     : 'absolute',
                                      'font-family'  :  "'" + selectedFont + "'"
                                 })
-
-
                         }});
-
         });
     }
-    else{
-        console.log('no btn has the focus')
+    else {
+        console.log('no btn has the focus');
     }
 }
 
+// Edit Shape Button 
+$('body').on('click', '.ui-draggable', function (event) {
+    var el = event.target;
+    targetId = '#' + el.id;
+    $(this).keydown(function(event){
+      if (event.which == 8){
+        event.preventDefault();
+        $('targetId').remove();
+        console.log(targetId + ' removed');
+        }
+    })  ;
+});
+
+
+// Edit Shape Button
+var editShape = function(event) {
+  var el = event.target;
+  targetId = el.id;
+  $(this).keydown(function(e){
+    if (e.which == 8){
+      e.preventDefault();
+      console.log(el.id + ' removed')
+    }
+  })
+}
+
+// Save button
 $('#save-btn').on('click', function(e){
     e.preventDefault();
     console.log(rectArr);
@@ -415,6 +426,6 @@ $('#save-btn').on('click', function(e){
     });
 })
 
-
+//Color Picker
 
 }); // Closing brackets for document.ready function

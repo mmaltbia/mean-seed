@@ -10,7 +10,9 @@ var rectangleBtn = $('#rectangle-btn'),
     textBtn = $('#text-btn'),
     font = $('#font-dropdown'),
     selectedFont = 'Raleway',
-    colorPicker = $('#color-picker');
+    colorPicker = $('#color-picker'),
+    fontSize = $('#font-size-dropdown'),
+    selectedFontSize = '24px';
 
 var hex;
 var currentColor;
@@ -311,7 +313,7 @@ var toggleShape = function() {
                                 }
                                 
                                 //append a new div and increment the class and turn it into jquery selector
-                                $(this).append('<div id="div-'+ i +'" class="gen_line_' + i + '"><hr></div>');
+                                $(this).append('<div id="div-'+ i +'" class="gen_line_' + i + '"></div>');
                                 gen_box = $('.gen_line_' + i);
                                 // div_id = $('#gen_line_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width};
@@ -322,12 +324,11 @@ var toggleShape = function() {
                                 
                                 //add css to generated div and make it resizable & draggable
                                 $(gen_box).css({
-                                     'background-color' : hexQuoted,
                                      'width'        : width,
+                                     'border-bottom': 'solid 3px #fff', 
                                      'position'     : 'absolute',
                                      'left'         : x_begin,
-                                     'top'          : y_begin,
-                                     'color'        : 'red'
+                                     'top'          : y_begin
                                 })
                                 .draggable({
                                   containment: ".container",  
@@ -342,7 +343,6 @@ var toggleShape = function() {
                                 //if the mouse was dragged left, offset the gen_box position 
                                 drag_left ? $(gen_line).offset({ left: x_end, top: y_begin }) : false;
                                 console.log( 'width: ' + width + 'px');
-                                console.log( 'height: ' + height + 'px' );                       
                                 //add the styles of generated div into .inner_col_one
                                 i++;
                         }});
@@ -437,12 +437,20 @@ var toggleShape = function() {
                                     return selectedFont;
                                 })
 
+                                fontSize.on('click', function(){
+                                    var f = document.getElementById("font-size-dropdown");
+                                    selectedFontSize = f.options[f.selectedIndex].value;
+                                    console.log(selectedFontSize);
+                                    return selectedFontSize;
+                                })
+
                                 $(text_box).css({
                                     'background'    : 'transparent',
                                      'width'        : '90%',
                                      'height'       : '90%',
                                      'position'     : 'absolute',
-                                     'font-family'  :  "'" + selectedFont + "'"
+                                     'font-family'  :  "'" + selectedFont + "'",
+                                     'font-size'    : "'" + selectedFontSize + "'"
                                 })
                         }});
         });

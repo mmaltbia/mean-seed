@@ -24,7 +24,7 @@ max-width: 200px;
 }
 
 .selected-div {
-    border: solid 2px red;
+    border: solid 5px #0078FF;
 }
 
 textarea {
@@ -37,6 +37,7 @@ textarea {
     padding-top: 10px;
     position: fixed;
     margin-top: 109px;
+    width: 107px;
 }
 
 ul {

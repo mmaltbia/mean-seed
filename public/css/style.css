@@ -6,9 +6,17 @@ body { background:#ccc;height:101%;width:101%; }
 
 h3 { font:bold 20px georgia, serif; }
 
+p {
+    color: #fff;
+}
+
 ul li {
     display: inline;
     padding-right: 60px;
+}
+
+div.container {
+    width: 100%;
 }
 
 .full-spectrum .sp-palette {
@@ -23,19 +31,86 @@ textarea {
     border: none;
 }
 
+#sidebar {
+    height: 100vh;
+    background-color: #2A2828;
+    padding-top: 10px;
+    position: fixed;
+    margin-top: 109px;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+div.sp-dd {
+    font-size: 7px;
+    color: #fff;
+}
+
+div.sp-replacer {
+    border: solid 1px #8C8C8C;
+    background: transparent;
+    color: #333;
+}
+
+
+#save-btn {
+    background-color: transparent;
+    color: white;
+    padding-top: 10px;
+    border: 0px;
+}
+
+#save-btn:focus {
+    outline: none;
+}
+
+.sidebar-icons {
+    height: 25px;
+}
+
+#font-dropdown{
+    width: 50px;
+}
+
+button {
+    border: none;
+    border-top: solid 6px transparent;
+    background-color: transparent;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    margin-top: 10px;
+}
+
+#logo {
+    position: fixed;
+    height: 109px;
+    background-color: #FF4B05;
+    left: 0px;
+}
+
+#clear-logo {
+    height: 71px;
+    margin-top: 17px;
+    margin-left: -11px;
+}
+
 #tool-bar { 
         background:#EFEFEF;  
-        margin: auto; 
         text-align: center; 
-        position: relative;
-        margin-top: -20px;
+        position: fixed;
+        margin-top: 0px;
         width: 800px;
-        padding-bottom: 45px;
+        padding-left: 40px;
+        padding-top: 0px;
+        padding-bottom: 110px;
         overflow-x: scroll;
         overflow-y: hidden;
         height: 80px;
         white-space:nowrap;
         width: 100%;
+        left: 107px;
     }
 
 /*button:focus {
@@ -44,7 +119,12 @@ textarea {
 
 
 .focused{
-    background-color: yellow;
+    border-top: solid 6px #0078FF;
+    margin-top: 0px;
+}
+
+button:focus {
+    outline: none;
 }
 
 .btn-image {

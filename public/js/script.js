@@ -4,17 +4,47 @@ $.get('/api/wireframes/:id', function(data){
     console.log('hello');
 });
 
-
 var rectangleBtn = $('#rectangle-btn'),
     circleBtn = $('#circle-btn'),
     lineBtn = $('#line-btn'),
     textBtn = $('#text-btn'),
     font = $('#font-dropdown'),
-    selectedFont = 'Raleway';
+    selectedFont = 'Raleway',
+    colorPicker = $('#color-picker');
 
 var hex;
 var currentColor;
 var hexQuoted;
+
+var selectedId;
+var id;
+
+$('.container').on('click', '.ui-draggable', function(event){
+    event.preventDefault();
+    selectedId = event.target.id;
+    var el = event.target;
+    selectedDivStyling();
+})
+
+var selectedDivStyling = function(){
+    $('.container').on('click', '.ui-draggable', function(event){
+    if(selectedId === event.target.id){
+        console.log('they match!');
+        id = document.getElementById(event.target.id);
+        console.log(id);
+        $('div').removeClass("selected-div");
+        $(id).addClass("selected-div");
+        $(document).keydown(function(event){
+          if(event.keyCode === 8){
+                event.preventDefault();
+                console.log(id);
+                id = $(this).find(id);
+                $(id).remove();
+            }
+    });
+};
+});
+};
 
 // Toggle Toolbar buttons & get Color
 rectangleBtn.on('click', function(){
@@ -50,6 +80,15 @@ textBtn.on('click', function(){
     rectangleBtn.removeClass();
     circleBtn.removeClass();
     lineBtn.removeClass();
+    toggleShape();
+})
+
+colorPicker.on('click', function(){
+    colorPicker.toggleClass( "focused", colorPicker.is( ":focus" ) );
+    rectangleBtn.removeClass();
+    circleBtn.removeClass();
+    lineBtn.removeClass();
+    textBtn.removeClass();
     toggleShape();
 })
 
@@ -116,7 +155,7 @@ var toggleShape = function() {
                                 
                                 //add css to generated div and make it resizable & draggable
                                 $(gen_box).css({
-                                    'background-color' : hexQuoted,
+                                     'background-color' : hexQuoted,
                                      'width'     : width,
                                      'height'    : height,
                                      'position'  : 'absolute',
@@ -142,7 +181,12 @@ var toggleShape = function() {
         });
     }
     else if(circleBtn.hasClass('focused')){
-        console.log('circle has the focus')
+        console.log('circle has the focus');
+
+        var currentColor = $("#picker").spectrum("get");
+        var hex = currentColor.toHexString(); 
+        var hexQuoted = "'" + hex + "'";
+        console.log(hexQuoted);
         // Draws Circles
         jQuery(function($) {
 
@@ -194,7 +238,7 @@ var toggleShape = function() {
                                 
                                 //add css to generated div and make it resizable & draggable
                                 $(gen_box).css({
-                                    'background'    : '#fff',
+                                     'background-color' : hexQuoted,
                                      'width'        : width,
                                      'height'       : width,
                                      'position'     : 'absolute',
@@ -221,7 +265,12 @@ var toggleShape = function() {
         });
     }
     else if(lineBtn.hasClass('focused')){
-        console.log('line has the focus')
+        console.log('line has the focus');
+
+        var currentColor = $("#picker").spectrum("get");
+        var hex = currentColor.toHexString(); 
+        var hexQuoted = "'" + hex + "'";
+        console.log(hexQuoted);
         // Draws Lines
         jQuery(function($) {
 
@@ -273,7 +322,7 @@ var toggleShape = function() {
                                 
                                 //add css to generated div and make it resizable & draggable
                                 $(gen_box).css({
-                                    'background'    : '#fff',
+                                     'background-color' : hexQuoted,
                                      'width'        : width,
                                      'position'     : 'absolute',
                                      'left'         : x_begin,
@@ -281,6 +330,7 @@ var toggleShape = function() {
                                      'color'        : 'red'
                                 })
                                 .draggable({
+                                  containment: ".container",  
                                   stop: function(event, ui) {
                                     var coordinates = $(this).css(["top", "left"]);
                                     console.log(coordinates);
@@ -299,7 +349,12 @@ var toggleShape = function() {
         });
     }
     else if(textBtn.hasClass('focused')){
-        console.log('text btn has the focus')
+        console.log('text btn has the focus');
+
+        var currentColor = $("#picker").spectrum("get");
+        var hex = currentColor.toHexString(); 
+        var hexQuoted = "'" + hex + "'";
+        console.log(hexQuoted);
         // Draws Textarea
         jQuery(function($) {
 
@@ -352,7 +407,7 @@ var toggleShape = function() {
                                 
                                 //add css to generated div and make it resizable & draggable
                                 $(gen_box).css({
-                                    'background'    : 'transparent',
+                                     'background'    : 'transparent',
                                      'width'        : width,
                                      'height'       : height,
                                      'position'     : 'absolute',
@@ -406,41 +461,9 @@ var toggleShape = function() {
 $('#wireframe-btn').on('click', function(event){
     event.preventDefault();
     console.log('hello');
-    var wireframeDiv = $("<div id=\'div-"+ i +"\'><img src=\'/images/wireframe.svg\'></div>")
+    var wireframeDiv = $("<div id=\'div-"+ i +"\'><img src=\'/images/wireframe-full.svg\'></div>").draggable({}).resizable({});
     $('.container').append(wireframeDiv);
 });
-
-
-var selectedId;
-
-$('.container').on('click', '.ui-draggable', function(event){
-    event.preventDefault();
-    selectedId = event.target.id;
-    var el = event.target;
-    selectedDivStyling();
-})
-
-var id;
-
-var selectedDivStyling = function(){
-    $('.container').on('click', '.ui-draggable', function(event){
-    if(selectedId === event.target.id){
-        console.log('they match!');
-        id = document.getElementById(event.target.id);
-        console.log(id);
-        $('div').removeClass("selected-div");
-        $(id).addClass("selected-div");
-        $(document).keydown(function(event){
-          if(event.keyCode === 8){
-                event.preventDefault();
-                console.log(id);
-                id = $(this).find(id);
-                $(id).remove();
-            }
-    });
-};
-});
-};
 
 // Color Picker
 $("#picker").spectrum({

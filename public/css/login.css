@@ -2,23 +2,22 @@ body {
 	font-family: Raleway, sans-serif;
 }
 
-span.highlight {
-	color: #F15A24;
-	font-size: 28px;
-	font-family: Raleway;
-	font-weight: 600;
+img#clear-logo-nav {
+  height: 55px;
 }
 
-
-span {
-	color: #fff;
-	font-size: 28px;
-	font-family: Raleway;
-	font-weight: 600;
+#splash-section {
+  margin-left: -20px;
+  margin-right: -20px;
 }
+
+h1 {
+  padding-left: 14px;
+}
+
 
 #nav {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #FF4B05;
   height: 60px;
   color: #fff;
   font-weight: 600;
@@ -36,20 +35,21 @@ span {
 }
 
 #login-form {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 20%;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-bottom: 25px;
-  border-radius: 5px;
-  color: white;
-  font-weight: 400;
-  padding-top: 25px;
+    background-color: rgba(19, 26, 76, 0.55);
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 400;
+    padding-top: 25px;
 }
 
 #signup-div{
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 20%;
+  background-color: rgba(19, 26, 76, 0.55);
+  margin-top: 5%;
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 25px;
@@ -57,20 +57,61 @@ span {
   color: white;
   font-weight: 400;
   padding-top: 25px;
+  margin-bottom: 40px;
 }
 
 #sign-up {
 	padding-left: 15px;
+  color: #FBFBFB;
+}
+
+#signup-btn {
+  background-color: #FF4B05;
 }
 
 #login-form > button {
-	color: #FFFDFD;
-  background-color: #C43812;
-  border: none;
+    color: #FFFDFD;
+    background-color: #FF4B05;
+    border: none;
 }
 
 #signup-modal > div > div > div.modal-body > form > div:nth-child(3) > input {
   background-color: #C43812;
   border: none;
+}
+
+#section-2 {
+  height: 250px;
+}
+
+#section2-h2 {
+    background-color: #FF4B05;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 42px;
+    margin-left: -35px;
+    margin-right: -35px;
+}
+
+h2 {
+  color: #0272BC;
+  padding-bottom: 0px;
+}
+
+h3{
+  margin-top: 0px;
+}
+
+#clear-screenshot {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#section-3 {
+  height:600px;
+  padding: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 

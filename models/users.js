@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
     Wireframe = require('./wireframes');
 
 var UserSchema = new Schema({
-	firstName: String,
+	  firstName: String,
     lastName: String,
     email: String,
     passwordDigest: String,

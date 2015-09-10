@@ -12,36 +12,39 @@
 <body>
 
   <div id="tool-bar">
-    <ul>
-      <li>
-        <button id="rectangle-btn" class="shape-btn">
-          Rectangle<br><img  class="btn-image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/rounded_rectangle.png">
-        </button>
-      </li>
-      <li>
-        <button id="circle-btn" class="shape-btn">
-          Circle<br><img id="circle-btn" class="btn-image" src="http://awmc.unc.edu/awmc/map_data/symbols/circle.png">
-        </button>
-      </li>
-      <li>
-        <button id="line-btn" class="shape-btn">Line<br><img id="line-btn" class="btn-image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/rounded_rectangle.png"></button>
-      </li>
-      <li>
-        <button id="text-btn" class="shape-btn">Text<br>
-          <img id="text-btn" class="btn-image" src="http://wiki.rpgclassics.com/images/archive/b/b2/20090709100232!Letter.png">
-        </button>
-        <select id="font-dropdown">
-          <option value="">Roboto Condensed</option>
-          <option value="">Open Sans</option>
-          <option value="">Raleway</option>
-          <option value="">Shadows Into Light Two</option>
-        </select>
-      </li>
-      <li>
-          
-      </li>
-      <li>Browser Template</li>
-    </ul>
+      <ul>
+        <li>
+          <button id="rectangle-btn" class="shape-btn">
+            Rectangle<br><img  class="btn-image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/rounded_rectangle.png">
+          </button>
+        </li>
+        <li>
+          <button id="circle-btn" class="shape-btn">
+            Circle<br><img id="circle-btn" class="btn-image" src="http://awmc.unc.edu/awmc/map_data/symbols/circle.png">
+          </button>
+        </li>
+        <li>
+          <button id="line-btn" class="shape-btn">Line<br><img id="line-btn" class="btn-image" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/rounded_rectangle.png"></button>
+        </li>
+        <li>
+          <button id="text-btn" class="shape-btn">Text<br>
+            <img id="text-btn" class="btn-image" src="http://wiki.rpgclassics.com/images/archive/b/b2/20090709100232!Letter.png">
+          </button>
+          <select id="font-dropdown">
+            <option value="">Roboto Condensed</option>
+            <option value="">Open Sans</option>
+            <option value="">Raleway</option>
+            <option value="">Shadows Into Light Two</option>
+          </select>
+        </li>
+        <li>
+          <button id="wireframe-btn" class="shape-btn">Wireframe<br><img id="wireframe-btn" class="btn-image" src="/images/wireframe.svg"></button>
+        </li>
+        <li>
+            
+        </li>
+        <li>Browser Template</li>
+      </ul>
   </div>
   <div id="wrapper">      
     <div class="inner_col_one"></div>
@@ -51,17 +54,17 @@
   </div><!-- End Wrapper-->
 
 <script>
-var editShape = function(event) {
-  var el = event.target;
-  targetId = el.id;
-  $(this).keydown(function(e){
-    if (e.which == 8){
-      e.preventDefault();
-      $('div').remove(targetId);
-      console.log(el.id + ' removed')
-    }
-  })
-}
+// var editShape = function(event) {
+//   var el = event.target;
+//   targetId = el.id;
+//   $(this).keydown(function(e){
+//     if (e.which == 8){
+//       e.preventDefault();
+//       $('div').remove(targetId);
+//       console.log(el.id + ' removed')
+//     }
+//   })
+// }
 </script>
 
   <script src="/js/script.js"></script>

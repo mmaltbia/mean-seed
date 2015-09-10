@@ -94,7 +94,7 @@ app.post('/login', function (req, res) {
     if (user){
       req.login(user);
       console.log('logged in:', user);
-      res.redirect('/profile');
+      res.redirect('/index');
 
       console.log("logged in")
    

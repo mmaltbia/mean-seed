@@ -91,7 +91,7 @@ var toggleShape = function() {
                                 }
                                 
                                 //append a new div and increment the class and turn it into jquery selector
-                                $(this).append('<div id="div-'+ i +'" class="gen_box_' + i + '"  onClick="editShape(event)"></div>');
+                                $(this).append('<div id="div-'+ i +'" class="gen_box_' + i + '"></div>');
                                 gen_box = $('.gen_box_' + i);
                                 div_id = $('#gen_box_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width, 'height': height};
@@ -169,7 +169,7 @@ var toggleShape = function() {
                                 }
                                 
                                 //append a new div and increment the class and turn it into jquery selector
-                                $(this).append('<div class="gen_circ_' + i + '" onClick="editShape()"></div>');
+                                $(this).append('<div id="div-'+ i +'" class="gen_circ_' + i + '"></div>');
                                 gen_box = $('.gen_circ_' + i);
                                 div_id = $('#gen_circ_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width, 'height': height};
@@ -248,9 +248,9 @@ var toggleShape = function() {
                                 }
                                 
                                 //append a new div and increment the class and turn it into jquery selector
-                                $(this).append('<div class="gen_line_' + i + '" onClick="editShape()"><hr></div>');
+                                $(this).append('<div id="div-'+ i +'" class="gen_line_' + i + '"><hr></div>');
                                 gen_box = $('.gen_line_' + i);
-                                div_id = $('#gen_line_' + i);
+                                // div_id = $('#gen_line_' + i);
                                 div_details = {'x': x_begin, 'y': y_begin, 'color': '#fff', 'stroke': '', 'width': width};
 
                                 console.log(div_details);
@@ -326,7 +326,7 @@ var toggleShape = function() {
                                 }
                                 
                                 //append a new div and increment the class and turn it into jquery selector
-                                $(this).append('<div class="gen_text_' + i + '" onClick="editShape()"><textarea class="text-box-'+ i + '"></textarea></div>');
+                                $(this).append('<div id="div-'+ i +'" class="gen_text_' + i + '" onClick="editShape(event)"><textarea class="text-box-'+ i + '"></textarea></div>');
                                 gen_box = $('.gen_text_' + i);
                                 text_box = $('.text-box-' + i);
                                 div_id = $('#gen_text_' + i);
@@ -381,33 +381,70 @@ var toggleShape = function() {
     else {
         console.log('no btn has the focus');
     }
-}
+};
 
-// Edit Shape Button 
-$('body').on('click', '.ui-draggable', function (event) {
-    var el = event.target;
-    targetId = '#' + el.id;
-    $(this).keydown(function(event){
-      if (event.which == 8){
-        event.preventDefault();
-        $('targetId').remove();
-        console.log(targetId + ' removed');
-        }
-    })  ;
+// $('body').not($('.selected-div')).on('click', function (event) {
+//     toggleHighlight.removeClass('selected-div');
+// });
+
+// Add Wireframe button
+
+$('#wireframe-btn').on('click', function(event){
+    event.preventDefault();
+    console.log('hello');
+    var wireframeDiv = $("<div id=\'div-"+ i +"\'><img src=\'/images/wireframe.svg\'></div>")
+    $('.container').append(wireframeDiv);
 });
 
+var selectedId;
 
-// Edit Shape Button
-var editShape = function(event) {
-  var el = event.target;
-  targetId = el.id;
-  $(this).keydown(function(e){
-    if (e.which == 8){
-      e.preventDefault();
-      console.log(el.id + ' removed')
-    }
-  })
-}
+$('.container').on('click', '.ui-draggable', function(event){
+    event.preventDefault();
+    selectedId = event.target.id;
+    var el = event.target;
+    selectedDivStyling();
+})
+
+var id;
+
+var selectedDivStyling = function(){
+    $('.container').on('click', '.ui-draggable', function(event){
+    if(selectedId === event.target.id){
+        console.log('they match!');
+        id = document.getElementById(event.target.id);
+        console.log(id);
+        $('div').removeClass("selected-div");
+        $(id).addClass("selected-div");
+        $(document).keydown(function(event){
+          if(event.keyCode === 8){
+                event.preventDefault();
+                console.log(id);
+                id = $(this).find(id);
+                $(id).remove();
+            }
+    });
+};
+});
+};
+
+
+
+// // Edit Shape Button 
+// $('body').on('click', '.ui-draggable', function (event) {
+//     var el = event.target;
+//     var targetId = '\'#' + el.id + "'";
+//     $('.selected-div').removeClass();
+//     var selectedId = targetId;
+//     console.log(selectedId);
+//     $(document).keydown(function(event){
+//       if (event.keyCode == 8){
+//         event.preventDefault();
+//         $(el).remove();
+//         }
+//     });
+//     $(this).addClass('selected-div');
+// });
+
 
 // Save button
 $('#save-btn').on('click', function(e){

@@ -11,6 +11,10 @@ ul li {
     padding-right: 60px;
 }
 
+.full-spectrum .sp-palette {
+max-width: 200px;
+}
+
 .selected-div {
     border: solid 2px red;
 }
@@ -86,7 +90,7 @@ textarea {
 /* --------- col_two elements(Create divs) --------- */
 
 .container { 
-    background: #DADADA;
+    background: #ccc;
     float:left;
     height:100%;
     position;relative;

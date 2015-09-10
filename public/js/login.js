@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 	//	EMAIL ADDRESS ALREADY IN USE CHECK
 	$('#signup-form').on('submit', function(event){
-			event.preventDefault();
+			// event.preventDefault();
 
 	});
 

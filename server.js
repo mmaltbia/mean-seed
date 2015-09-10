@@ -94,7 +94,7 @@ app.post('/login', function (req, res) {
     if (user){
       req.login(user);
       console.log('logged in:', user);
-      res.redirect('/index');
+      res.redirect('/profile');
 
       console.log("logged in")
    
@@ -152,6 +152,6 @@ app.post('/api/wireframes/:id/rectangles', function(req, res){
 });
 
 // listen on port 3030
-app.listen(process.env.PORT || 3030, function () {
-  console.log('server started on localhost:3030');
+app.listen(process.env.PORT || 3000, function () {
+  console.log('server started on localhost:3000');
 });

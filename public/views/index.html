@@ -2,23 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Clear</title>
   <link href="/css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-  <link rel="stylesheet" href="/css/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800|Roboto+Condensed:400,300|Raleway:400,300|Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='/css/spectrum.css' />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-  <script src="/js/jquery-2.1.4.min.js"></script>
-  <script src="/js/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap-3.2.0.min.css"/>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-
-
-<div class="row">  
-  <div id="logo" class="col-sm-1">
-    <img id="clear-logo" src="/images/logo.png">
-  </div>
-  <div class="col-sm-11" id="tool-bar">
+<div>
+  <div class="row">
+    <div id="logo" class="col-sm-2 text-center">
+        <a href="/"><img id="clear-logo" src="/images/logo.png"></a>
+    </div>
+    <div class="col-sm-10" id="tool-bar">
       <ul>
         <li>
           <button id="rectangle-btn" class="shape-btn">
@@ -55,15 +53,13 @@
         </li>
       </ul>
   </div> <!-- toolbar end -->
-</div> 
-
-    <div class="container">
-      <div class="row">
-        <div id="sidebar" class="col-sm-1">
+</div>
+  <div class="row">
+    <div id="sidebar" class="col-sm-2 text-center">
           <ul>
             <li>
-              <div class="text-center sidebar-btns">
-                <button id="save-btn"><img class="sidebar-icons" src="/images/save.svg"><br>Save</button>
+              <div>
+                <button class="text-center sidebar-btns" id="save-btn"><img class="sidebar-icons" src="/images/save.svg"><br>Save</button>
               </div>
             </li>
             <li>
@@ -93,16 +89,19 @@
             </li>
           </ul>
         </div> <!-- sidebar end -->
-        <div class="col-sm-11">
+  
+      <div class="container col-sm-10">
+        <div id="canvas" contenteditable>
           
         </div>
-      </div>
-    </div>
-
-    <hr id="hr-id">
-
+      </div>    
+  </div>
+</div>
+  <script src="/js/jquery-2.1.4.min.js"></script>
+  <script src="/js/jquery-ui.min.js"></script>
   <script src='/js/spectrum.js'></script>
   <script src="/js/script.js"></script>
+  <script src="/js/images.js"></script>
 
 </body>
 </html>

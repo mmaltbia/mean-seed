@@ -2,16 +2,16 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     bcrypt = require('bcrypt'),
     salt = bcrypt.genSaltSync(10),
-    Wireframe = require('./wireframes');
+    Project = require('./projects');
 
 var UserSchema = new Schema({
 	  firstName: String,
     lastName: String,
     email: String,
     passwordDigest: String,
-    wireframes: [{
+    projects: [{
       type: Schema.Types.ObjectId,
-      ref: 'Wireframe'}]
+      ref: 'Project'}]
 });
 
 // create a new user with secure (hashed) password

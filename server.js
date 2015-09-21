@@ -11,7 +11,9 @@ var express = require('express'),
     bcrypt = require('bcrypt'),
     salt = bcrypt.genSaltSync(10),
     session = require('express-session'),
-    Wireframe = require('./models/wireframes.js');
+    Wireframe = require('./models/wireframes.js'),
+    Project = require('./models/projects.js');
+
 
 // connect to mongodb
 mongoose.connect(
